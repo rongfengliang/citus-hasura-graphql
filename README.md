@@ -87,6 +87,24 @@ SELECT create_distributed_table('ads', 'company_id');
 
 ![images](./images/WX20181029-131214@2x.png)
 
+* with aggregate new fetures
+
+```code
+query {
+   ads_aggregate(where:{
+    company_id:{
+      _eq:44
+    }
+  }) {
+  aggregate {
+    sum {
+      clicks_count
+    }
+  }
+  }
+}
+```
+
 ## some notes
 
 some sql not supported by citus,the  best way is to see the limits in  Official 
