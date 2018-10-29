@@ -2,7 +2,7 @@ version: '2.1'
 
 services:
   graphql-engine:
-    image: hasura/graphql-engine:v1.0.0-alpha26
+    image: hasura/graphql-engine:v1.0.0-alpha27
     ports:
     - "8080:8080"
     command: >
@@ -17,8 +17,6 @@ services:
   worker:
     image: 'citusdata/citus:7.5.1'
     labels: ['com.citusdata.role=Worker']
-    ports:
-    - "5433:5432"
     depends_on: { manager: { condition: service_healthy } }
   manager:
     container_name: "${COMPOSE_PROJECT_NAME:-citus}_manager"
